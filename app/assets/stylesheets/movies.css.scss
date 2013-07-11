@@ -10,13 +10,16 @@ color: #FF3500;
  background: image-url('background.jpg') no-repeat top center fixed;
 }
 
-.navbar-inner {
-
+.navbar a:hover,
+.navbar a:focus {
+color: #FF3500 !important;
+  // text-shadow: 0px 0px 20px #FF3500 !important;
 }
 
 
 .popup_login {
 margin: 20px 0 0 0;
+text-align: center;
 }
 
 th {
@@ -51,7 +54,7 @@ h1 {
   font-size: 90px;
   color: white;
   padding: 0;
-  margin: 40px 20px 20px 470px;
+  margin: 40px 20px 23px 20px;
 }
 
 .coolmovie {

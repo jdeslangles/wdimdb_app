@@ -12,12 +12,17 @@
   <div class="container">
     <div class="header">
       <div class="row">
+
+
         <div class="span9">
           <h1>WDImDB</h1>
         </div>
+    <div class="popup_login span3">
+          <% if current_user %><div class="coolmovie logged-in">Logged in as <%= current_user.name %></div><% end %>
+        </div>
       </div>
 
-      <div class="navbar">
+      <div class="navbar navbar-inverse">
         <nav class="navbar-inner">
           <ul class ="nav">
             <li class="active"><%= link_to("Home", movies_path) %></li>
