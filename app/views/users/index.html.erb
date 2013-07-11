@@ -1,0 +1,19 @@
+<h3>Our members:</h3>
+<br>
+<div class="row">
+<div class="span5 offset1">
+<% @users.each do |user| %>
+<div class="coolmovie" >
+ <table class="table">
+  Member profile:
+  <th>Name:</th>
+  <td><%= user.name %></td>
+  <th>Email:</th>
+  <td><%= user.email %></td>
+  <!-- < %= user.password_digest %> -->
+</table>
+</div>
+<% end %>
+</div>
+</div>
+

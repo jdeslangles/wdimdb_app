@@ -1,0 +1,29 @@
+<h3>Movie details:</h3>
+  <div class="span5 offset1">
+    <br>
+    <div class="coolmovie">
+            <%=image_tag @movie.movie_image.detail.url %>
+      <table class="table">
+        <tr>
+          <th>Title</th>
+          <td><%= @movie.title %></td>
+        <tr>
+          <th>Description</th>
+          <td><%= @movie.description %></td>
+        <tr>
+          <th>Year</th>
+          <td><%= @movie.year %></td>
+        <tr>
+          <th>Category</th>
+          <td><%= @movie.category.category_name if @movie.category %></td>
+        <tr>
+          <th>Actors</th>
+          <td><%= @movie.actors.map(&:name).to_sentence %>
+          </td>
+      </table>
+      <br>
+        <%= link_to 'Edit', edit_movie_path(@movie.id)%>
+        <%= link_to '- Delete', movie_path(@movie.id), method: :delete, data: { confirm: 'Are you sure?' }%>
+    </div>
+  </div>
+</div>

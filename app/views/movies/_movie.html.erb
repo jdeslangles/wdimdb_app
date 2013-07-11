@@ -1,0 +1,38 @@
+  <div class="span4">
+    <% cycle("1","2", "3") %>
+    <div class="coolmovie">
+    <table class="table">
+       <%=image_tag movie.movie_image.thumb.url if movie.movie_image %>
+      <tr>
+        <th>Title</th>
+        <td><%= movie.title %></td>
+      <tr>
+        <th>Year</th>
+        <td><%= movie.year %></td>
+      <tr>
+        <th>Description</th>
+        <td><%= movie.description %></td>
+      <tr>
+        <th>Category</th>
+        <td><%= movie.category.category_name if movie.category %></td>
+      <tr>
+        <th>Actors</th>
+        <td><%= movie.actors.map(&:name).to_sentence %>
+        </td>
+        <tr>
+      </table>
+        <div class="links">
+          <%= link_to 'See details', movie_path(movie)%>
+        <% if can? :edit, Movie %>
+          <%= link_to '- Edit', edit_movie_path(movie)%>
+         <% end %>
+        <% if can? :delete, Movie %>
+          <%= link_to '- Delete', movie, method: :delete, data: { confirm: 'Are you sure?' }%>
+                  <% end %>
+      </div>
+    </div>
+  </div>
+  <% if current_cycle == '3' %>
+    </div>
+    <div class="row">
+    <% end %>

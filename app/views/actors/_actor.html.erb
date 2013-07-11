@@ -1,0 +1,31 @@
+  <div class="span3">
+   <% cycle("1","2", "3","4") %>
+    <div class="coolmovie actor">
+    <table class="table">
+ <%=image_tag actor.actor_image.thumb.url, class: 'img-circle' if actor.actor_image %>
+      <tr>
+        <th>Name</th>
+        <td><%= actor.name %></td>
+        <tr>
+        <th>Seen in:</th>
+        <td><%= actor.movies.map(&:title).to_sentence %>
+        </td>
+        <tr>
+      </table>
+
+        <div class="links">
+          <%= link_to 'See details', actor_path(actor)%>
+                  <% if can? :edit, Actor %>
+          <%= link_to '- Edit', edit_actor_path(actor)%>
+                  <% end %>
+                  <% if can? :delete, Actor %>
+          <%= link_to '- Delete', actor, method: :delete, data: { confirm: 'Are you sure?' }%>
+      <% end %>
+      </div>
+
+    </div>
+  </div>
+  <% if current_cycle == '4' %>
+    </div>
+    <div class="row">
+  <% end %>

@@ -1,0 +1,27 @@
+<h3>Actor profile:</h3>
+<div class="row">
+  <div class="span5 offset1">
+    <br>
+    <div class="coolmovie">
+         <%=image_tag @actor.actor_image.detail.url, class: 'img-circle' %>
+
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <td><%= @actor.name %></td>
+      <tr>
+        <th>Can be seen in:</th>
+        <td>
+              <%= @actor.movies.map(&:title).to_sentence %>
+        </td>
+    </table>
+    <br>
+         <% if can? :edit, Actor %>
+        <%= link_to 'Edit', edit_actor_path(@actor.id)%>
+      <%end%>
+      <% if can? :delete, Actor %>
+        <%= link_to '- Delete', actor_path(@actor.id), method: :delete, data: { confirm: 'Are you sure?' }%>
+           <%end%>
+    </div>
+  </div>
+</div>
